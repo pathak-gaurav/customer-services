@@ -36,4 +36,10 @@ public class CustomerRestController {
         return "Customer Deleted - " + customerId;
     }
 
+    @PutMapping("/customer")
+    public Customer saveCustomer(@RequestBody Customer customer) {
+        customerService.saveOrUpdateCustomer(customer);
+        return customer;
+    }
+
 }

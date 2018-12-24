@@ -42,4 +42,11 @@ public class CustomerDAOImpl implements CustomerDAO {
         Customer customer = session.find(Customer.class, customerId);
         session.delete(customer);
     }
+
+    @Override
+    public Customer saveOrUpdateCustomer(Customer customer) {
+        Session session = entityManager.unwrap(Session.class);
+        session.saveOrUpdate(customer);
+        return customer;
+    }
 }
