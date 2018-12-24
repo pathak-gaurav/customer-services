@@ -1,4 +1,4 @@
-package com.gaurav.customerservices;
+package com.gaurav.customerservices.service;
 
 import org.springframework.stereotype.Service;
 
