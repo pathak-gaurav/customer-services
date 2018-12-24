@@ -29,4 +29,10 @@ public class CustomerDAOImpl implements CustomerDAO {
         return session.createNamedQuery("customer.find_all", Customer.class).getResultList();
 
     }
+
+    @Override
+    public Customer findBy(int customerId) {
+        Session session = entityManager.unwrap(Session.class);
+        return session.find(Customer.class, customerId);
+    }
 }

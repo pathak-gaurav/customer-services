@@ -7,4 +7,6 @@ import java.util.List;
 public interface CustomerDAO {
 
     List<Customer> findAll();
+
+    Customer findBy(int customerId);
 }

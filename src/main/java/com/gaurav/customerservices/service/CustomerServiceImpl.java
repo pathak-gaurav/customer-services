@@ -22,4 +22,9 @@ public class CustomerServiceImpl implements CustomerService {
     public List<Customer> findAll() {
         return customerDAO.findAll();
     }
+
+    @Override
+    public Customer findBy(int customerId) {
+        return customerDAO.findBy(customerId);
+    }
 }
