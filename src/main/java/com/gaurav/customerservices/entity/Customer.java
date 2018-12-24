@@ -11,6 +11,7 @@ import javax.persistence.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "CUSTOMER")
+@NamedQuery(name = "customer.find_all", query = "select c from Customer c")
 public class Customer {
 
     @Id
