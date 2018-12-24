@@ -31,8 +31,15 @@ public class CustomerDAOImpl implements CustomerDAO {
     }
 
     @Override
-    public Customer findBy(int customerId) {
+    public Customer findBy(Long customerId) {
         Session session = entityManager.unwrap(Session.class);
         return session.find(Customer.class, customerId);
+    }
+
+    @Override
+    public void delete(Long customerId) {
+        Session session = entityManager.unwrap(Session.class);
+        Customer customer = session.find(Customer.class, customerId);
+        session.delete(customer);
     }
 }

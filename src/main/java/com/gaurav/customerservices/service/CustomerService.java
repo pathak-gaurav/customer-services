@@ -8,5 +8,7 @@ public interface CustomerService {
 
     List<Customer> findAll();
 
-    Customer findBy(int customerId);
+    Customer findBy(Long customerId);
+
+    void delete(Long customerId);
 }

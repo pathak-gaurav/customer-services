@@ -24,7 +24,12 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
-    public Customer findBy(int customerId) {
+    public Customer findBy(Long customerId) {
         return customerDAO.findBy(customerId);
+    }
+
+    @Override
+    public void delete(Long customerId) {
+        customerDAO.delete(customerId);
     }
 }

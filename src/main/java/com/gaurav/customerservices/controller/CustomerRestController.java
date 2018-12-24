@@ -2,10 +2,7 @@ package com.gaurav.customerservices.controller;
 
 import com.gaurav.customerservices.entity.Customer;
 import com.gaurav.customerservices.service.CustomerService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -25,8 +22,18 @@ public class CustomerRestController {
     }
 
     @GetMapping("/customer/{customerId}")
-    public Customer findCustomer(@PathVariable int customerId) {
+    public Customer findCustomer(@PathVariable Long customerId) {
         return customerService.findBy(customerId);
+    }
+
+    @DeleteMapping("/customer/{customerId}")
+    public String deleteCustomer(@PathVariable Long customerId) {
+        Customer customer = customerService.findBy(customerId);
+        if (customer == null) {
+            throw new RuntimeException("Customer not found - " + customerId);
+        }
+        customerService.delete(customerId);
+        return "Customer Deleted - " + customerId;
     }
 
 }
