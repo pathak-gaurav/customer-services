@@ -24,4 +24,8 @@ public class Customer {
     @Column(name = "LAST_NAME")
     private String lastName;
 
+    public Customer(String firstName, String lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
 }
