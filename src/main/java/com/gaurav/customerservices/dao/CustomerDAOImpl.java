@@ -44,9 +44,16 @@ public class CustomerDAOImpl implements CustomerDAO {
     }
 
     @Override
-    public Customer saveOrUpdateCustomer(Customer customer) {
+    public Customer updateCustomer(Customer customer) {
         Session session = entityManager.unwrap(Session.class);
-        session.saveOrUpdate(customer);
+        session.update(customer);
+        return customer;
+    }
+
+    @Override
+    public Customer saveCustomer(Customer customer) {
+        Session session = entityManager.unwrap(Session.class);
+        session.save(customer);
         return customer;
     }
 }

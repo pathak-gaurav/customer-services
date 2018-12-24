@@ -37,8 +37,15 @@ public class CustomerRestController {
     }
 
     @PutMapping("/customer")
+    public Customer updateCustomer(@RequestBody Customer customer) {
+        customerService.updateCustomer(customer);
+        return customer;
+    }
+
+    @PostMapping("/customer")
     public Customer saveCustomer(@RequestBody Customer customer) {
-        customerService.saveOrUpdateCustomer(customer);
+        customer.setCustomerId(0L);
+        customerService.saveCustomer(customer);
         return customer;
     }
 
